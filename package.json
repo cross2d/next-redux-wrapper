@@ -1,16 +1,26 @@
 {
-  "name": "next-redux-wrapper",
+  "name": "@cross2d/next-redux-wrapper",
   "version": "1.3.3",
   "description": "Redux wrapper for Next.js",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "start": "next"
+    "start": "next",
+    "build": "rm -rf ./dist && mkdir dist && NODE_ENV=production babel src -d dist --ignore **/__tests__",
+    "release": "npm run build && npm publish --access public"
   },
   "author": "Kirill Konshin",
   "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "babel-jest": "^20.0.3",
-    "babel-preset-react-app": "^3.0.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-app": "^3.0.2",
+    "babel-preset-stage-0": "^6.24.1",
     "jest": "^20.0.4",
     "next": "^2.4.3",
     "react": "^15.4.2",
@@ -18,7 +28,8 @@
     "react-redux": "^5.0.2",
     "react-test-renderer": "^15.4.2",
     "redux": "^3.6.0",
-    "redux-promise-middleware": "^4.2.0"
+    "redux-promise-middleware": "^4.2.0",
+    "webpack": "^3.5.5"
   },
   "peerDependencies": {
     "react": "*",
